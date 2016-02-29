@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  get 'profile', to: 'users#profile'
+  resources :users
   resources :projects
 
-  root 'projects#index'
+  root to: 'projects#index'
 end

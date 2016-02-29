@@ -1,19 +1,20 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @projects = Project.all
+    @projects = Project.all.order('created_at DESC')
   end
 
   def show
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.build
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
 
     if @project.save
       redirect_to @project, notice: "El proyecto se ha creado correctamente"
