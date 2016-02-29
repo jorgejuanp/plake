@@ -1,8 +1,10 @@
 <h1><%= @project.title %></h1>
-<p>Submitted by: <%= link_to(@project.user.email, @project.user %></p>
+<p>Submitted by: <%= link_to(@project.user.email, @project.user) %></p>
 <p><%= @project.description %></p>
 
 <% if user_signed_in? %>
-  <%= link_to('Edit', edit_project_path) %>
-  <%= link_to('Delete', project_path, method: :delete, data: {confirm: 'Are you sure?'}) %>
+  <% if current_user.email == @project.user.email %>
+    <%= link_to 'Edit', edit_project_path %>
+    <%= link_to 'Delete', project_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
 <% end %>

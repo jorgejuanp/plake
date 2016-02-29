@@ -1,4 +1,18 @@
 <h1>User page: <%= @user.email %></h1>
 <% if user_signed_in? %>
-  <%= link_to 'Edit Profile', edit_user_registration_path, :action => 'get', :method => 'get', class: 'pull-right'%>
+  <% if current_user.email == @user.email %>
+    <p><%= link_to 'Edit Profile', edit_user_registration_path, :action => 'get', :method => 'get'%></p>
+    <!-- private data -->
+    <p>Only showed in user's own profile page when user_signed_in</p>
+  <% end %>
 <% end %>
+
+<!-- public data -->
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
