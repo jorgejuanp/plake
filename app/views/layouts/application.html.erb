@@ -22,6 +22,7 @@
           <div class="col-sm-4">
             <%= button_to 'Sign out', destroy_user_session_path, :action => 'destroy', :method => 'delete', class: 'btn btn-sm text-capitalize btn-primary pull-right'%>
             <%= link_to current_user.email , profile_path, :action => 'get', :method => 'get', class: 'pull-right' %>
+            <%= image_tag(current_user.avatar.url(:thumb)) %>
           </div>
         </div>
       </div>
