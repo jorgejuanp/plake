@@ -4,7 +4,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.file_field :avatar %>
+    <%= image_tag @user.avatar.url(:thumb) %>
+    <%= f.file_field :avatar %><br>
+    <%= f.input :username, required: true, autofocus: true %>
+    <%= f.input :description, autofocus: true %>
+    <%= f.input :link, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

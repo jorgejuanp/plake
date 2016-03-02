@@ -1,6 +1,6 @@
 <%= image_tag @user.avatar.url(:medium) %>
 
-<h1><%= @user.email %></h1>
+<h1><%= @user.username %></h1>
 <% if user_signed_in? %>
   <% if current_user.email == @user.email %>
     <p><%= link_to 'Edit Profile', edit_user_registration_path, :action => 'get', :method => 'get'%></p>
@@ -11,13 +11,9 @@
 
 <!-- public data -->
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <strong>Link:</strong><a href="<%= @user.link %>"> <%= @user.link %></a><br>
+  <strong>Email:</strong> <%= @user.email %>
 </p>
-
-
-
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <%= @user.description %>
 </p>
