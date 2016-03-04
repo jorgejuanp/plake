@@ -14,14 +14,16 @@
           <div class="col-sm-8">
             <nav class="navbar-default" style="background-color:transparent">
               <%= button_to 'HOME', root_path, :action => 'get', :method => 'get', class: 'btn btn-default btn-sm tpnt_button pull-left'%>
-              <%= link_to('Create new project', new_project_path) %>
+              <% if user_signed_in? %>
+                <%= link_to('Create new project', new_project_path) %>
+              <% end %>
             </nav>
           </div>
 
           <% if user_signed_in? %>
           <div class="col-sm-4">
             <%= button_to 'Sign out', destroy_user_session_path, :action => 'destroy', :method => 'delete', class: 'btn btn-sm text-capitalize btn-primary pull-right'%>
-            <%= link_to current_user.email , profile_path, :action => 'get', :method => 'get', class: 'pull-right' %>
+            <%= link_to current_user.username , profile_path, :action => 'get', :method => 'get', class: 'pull-right' %>
             <%= image_tag(current_user.avatar.url(:thumb)) %>
           </div>
         </div>

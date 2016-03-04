@@ -19,5 +19,12 @@ classes, '.form-horizontal' or '.form-inline', as the following:
 
   <%= f.input :title, label: 'Título', input_html: {class: 'form-control'} %>
   <%= f.input :description, label: 'Descripción breve', input_html: {class: 'form-control'} %>
-  <%= f.button :submit, label: 'Crear', class: 'btn btn-default' %>
+  <%= f.input :tag_list, label: 'Category', :collection => ['Science', 'Technology', 'Engineering', 'Art', 'Mathematics'], input_html: {class: 'btn btn-default dropdown-toggle', type: "button", id: "dropdownTags"} %>
+  <!-- include = below to show the tags field -->
+  <% f.input :tag_list, label: 'Tags (separated by commas)', input_html: {class: 'form-control'} %>
+
+  <%= f.cktext_area :instructions %>
+
+
+  <%= f.button :submit, label: 'Create', class: 'btn btn-default' %>
 <% end %>

@@ -1,6 +1,8 @@
 <h1><%= @project.title %></h1>
-<p>Submitted by: <%= link_to(@project.user.email, @project.user) %></p>
-<p><%= @project.description %></p>
+<p>Author: <%= link_to(@project.user.username, @project.user) %></p>
+<p>Category: <%= @project.tag_list %></p>
+<p><%== @project.description %></p>
+
 
 <% if user_signed_in? %>
   <% if current_user.email == @project.user.email %>

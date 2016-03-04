@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
 #extra GEMS
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'devise'
 gem "paperclip", "~> 4.3"
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'ckeditor'
 
 gem 'rails', '4.2.5'
 gem 'sqlite3'

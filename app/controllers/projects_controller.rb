@@ -4,6 +4,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all.order('created_at DESC')
+
+    @projects
   end
 
   def show
@@ -39,9 +41,15 @@ class ProjectsController < ApplicationController
     redirect_to root_path, notice: "Project deleted"
   end
 
+  def projects_as_json
+    projects = Project.all
+
+    render json: projects
+  end
+
   private
   def project_params
-    params.require(:project).permit(:title, :description)
+    params.require(:project).permit(:title, :description, :tag_list)
   end
 
   def find_project

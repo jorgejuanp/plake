@@ -5,9 +5,10 @@
     <li>
       <h4><%= link_to(p.title, project_path(p.id)) %></h4>
       <% if p.user %>
-        <p>by <%= image_tag p.user.avatar.url(:thumb) %> <%= link_to p.user.email, user_path(p.user.id), :action => 'get', :method => 'get' %></p>
+        <p>Author: <%= image_tag p.user.avatar.url(:thumb) %> <%= link_to p.user.username, user_path(p.user.id), :action => 'get', :method => 'get' %></p>
+        <p>Category: <%= p.tag_list %></p>
       <% end %>
-      <p><%= p.description %></p>
+      <p><%== p.description %></p>
     </li>
   </ul>
 <% end %>
