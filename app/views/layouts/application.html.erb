@@ -23,7 +23,7 @@
           <% if user_signed_in? %>
           <div class="col-sm-4">
             <%= button_to 'Sign out', destroy_user_session_path, :action => 'destroy', :method => 'delete', class: 'btn btn-sm text-capitalize btn-primary pull-right'%>
-            <%= link_to current_user.username , profile_path, :action => 'get', :method => 'get', class: 'pull-right' %>
+            <%= link_to current_user.username , user_path(current_user.id), :action => 'get', :method => 'get', class: 'pull-right' %>
             <%= image_tag(current_user.avatar.url(:thumb)) %>
           </div>
         </div>

@@ -1,7 +1,8 @@
+<p><%== @project.thumbnail %></p>
 <h1><%= @project.title %></h1>
 <p>Author: <%= link_to(@project.user.username, @project.user) %></p>
 <p>Category: <%= @project.tag_list %></p>
-<p><%== @project.description %></p>
+<p><%== @project.instructions %></p>
 
 
 <% if user_signed_in? %>
