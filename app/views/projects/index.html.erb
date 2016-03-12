@@ -2,7 +2,7 @@
 
 <% @projects.each do |p| %>
   <ul>
-    <li>
+    <li class="project-card">
       <h4><%= link_to(p.title, project_path(p.id)) %></h4>
       <% if p.user %>
         <p>Author: <%= image_tag p.user.avatar.url(:thumb) %> <%= link_to p.user.username, user_path(p.user.id), :action => 'get', :method => 'get' %></p>
@@ -12,3 +12,41 @@
     </li>
   </ul>
 <% end %>
+
+
+<!--
+
+<li class="card course syllabus topic-ios personalized" data-location="library" data-featurette="library-card" data-activity="syllabus/2002" id="Syllabus-2002">
+
+  <a class="card-title" href="/library/objectoriented-objectivec">
+    <div class="card-progress">
+      <svg class="course-icon"></svg>
+      <span class="estimate">4 hours</span>
+    </div>
+
+    <strong>Course</strong>
+    <h3>Object-Oriented Objective-C</h3>
+    <p class="description">
+      Following directly from the Objective-C  Basics course, we'll explore critical concepts like classes, objects, methods, memory management, pointers and more. An essential course for iOS Development with Objective-C.
+    </p>
+  </a>
+
+  <ul class="card-tags tags">
+    <li class="topic-ios topic topic"><a data-filter-list-val="topic:ios" href="/library/topic:ios"><span>iOS</span></a></li><li class="difficulty"><span>Beginner</span></li>
+    <li class="truncated-tags"><span></span><ul></ul></li>
+  </ul>
+
+  <ul class="card-actions">
+    <li class="card-action resume">
+      <a class="button primary" href="/library/objectoriented-objectivec/getting-oriented-objectoriented-that-is/introduction-to-objects-part-1">Start</a>
+    </li>
+    <li class="card-action secondary bookmarkable" data-featurette="bookmarkable" id="featurette-25">
+      <a class="card-action-button bookmark" data-method="POST" rel="nofollow" href="/library/objectoriented-objectivec/pin">
+        <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 16 16" class="star-small-icon"></svg>
+      </a>
+      <a class="card-action-button unbookmark" href="/library/objectoriented-objectivec/unpin">
+        <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 18 18" class="loading-icon"></svg>
+      </a>
+    </li>
+  </ul>
+</li><!-- end project card -->

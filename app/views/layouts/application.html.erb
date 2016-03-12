@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container-fluid">
   <div id="top_bar">
-    <div class="container-fluid">
-      <div class="row" style="background-color:rgba(0,100,100,0.1);">
+      <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-8">
             <nav class="navbar-default" style="background-color:transparent">
-              <%= button_to 'HOME', root_path, :action => 'get', :method => 'get', class: 'btn btn-default btn-sm tpnt_button pull-left'%>
+              <%= button_to 'HOME', root_path, :action => 'get', :method => 'get', class: 'btn btn-default link-mainbar btn-sm tpnt_button pull-left'%>
               <% if user_signed_in? %>
                 <%= link_to('Create new project', new_project_path) %>
               <% end %>
@@ -22,7 +22,7 @@
 
           <% if user_signed_in? %>
           <div class="col-sm-4">
-            <%= button_to 'Sign out', destroy_user_session_path, :action => 'destroy', :method => 'delete', class: 'btn btn-sm text-capitalize btn-primary pull-right'%>
+            <%= button_to 'Sign out', destroy_user_session_path, :action => 'destroy', :method => 'delete', class: 'btn btn-sm text-capitalize btn-primary btn-mainbar pull-right'%>
             <%= link_to current_user.username , user_path(current_user.id), :action => 'get', :method => 'get', class: 'pull-right' %>
             <%= image_tag(current_user.avatar.url(:thumb)) %>
           </div>
@@ -30,21 +30,27 @@
       </div>
           <% else %>
           <div class="col-sm-4">
-            <%= button_to 'Sign Up', new_user_registration_path, :action => 'get', :method => 'get', class: 'btn btn-sm text-capitalize btn-primary pull-right'%>
-            <%= button_to 'Login', new_user_session_path, :action => 'get', :method => 'get', class: 'btn btn-default btn-sm text-capitalize btn-primary pull-right'%>
+            <%= button_to 'Sign Up', new_user_registration_path, :action => 'get', :method => 'get', class: 'btn btn-sm text-capitalize btn-primary btn-mainbar pull-right'%>
+            <%= button_to 'Login', new_user_session_path, :action => 'get', :method => 'get', class: 'btn btn-default btn-sm text-capitalize btn-primary btn-mainbar pull-right'%>
           </div>
         </div>
       </div>
           <% end %>
-    </div>
 
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: "alert" %>
   <% end %>
 
+  <div class="row hero text-center">
+    <h1 class="tagline">A space to Play and Make</h1>
+    <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <a class="btn btn-default link-mainbar" href="#" role="button">See projects</a>
+  </div>
+
   <div class="container">
     <%= yield %>
   </div>
+</div>
 
 </body>
 </html>

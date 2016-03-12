@@ -8,6 +8,14 @@ Rails.application.routes.draw do
 
   root to: 'projects#index'
 
-
-  get 'list', to: 'projects#projects_as_json'
+  # API version 1
+  # By adding namespace, Rails will automatically map that namespace to a directory matching the name under the controllers folder
+  namespace :api,
+    :path => "", #removes 'api' from the URL path
+    :defaults => {:format => :json}, #sets json as default format in our routes
+    :constraints => {:subdomain => "api"} do #creates the subdomain (api.myapp...)
+      namespace :v1 do
+        resources :projects
+      end
+  end
 end

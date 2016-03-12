@@ -41,12 +41,6 @@ class ProjectsController < ApplicationController
     redirect_to root_path, notice: "Project deleted"
   end
 
-  def projects_as_json
-    projects = Project.all
-
-    render json: projects
-  end
-
   private
   def project_params
     params.require(:project).permit(:thumbnail, :title, :description, :tag_list, :instructions)
